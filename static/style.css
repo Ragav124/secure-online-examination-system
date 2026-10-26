@@ -1,0 +1,304 @@
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1d2940;
+    background: #f3f6fc;
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+a {
+    color: #2858c7;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    min-height: 72px;
+    padding: 14px max(5%, calc((100% - 1100px) / 2));
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #12213d;
+    color: white;
+}
+
+.navbar form {
+    margin-left: auto;
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar .brand {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.welcome {
+    margin-left: auto;
+}
+
+.container {
+    max-width: 1050px;
+    width: 92%;
+    margin: 38px auto;
+    min-height: 65vh;
+}
+
+.auth-card,
+.card,
+.question-card,
+.result-card,
+.hero {
+    background: white;
+    border: 1px solid #e2e8f2;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 28px rgba(30, 50, 90, 0.05);
+}
+
+.auth-card {
+    max-width: 470px;
+    margin: 35px auto;
+}
+
+h1 {
+    font-size: clamp(27px, 4vw, 38px);
+    margin: 8px 0 14px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    line-height: 1.65;
+}
+
+.eyebrow {
+    color: #2858c7;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.muted {
+    color: #68758b;
+}
+
+.small {
+    font-size: 13px;
+}
+
+.center {
+    text-align: center;
+    margin-top: 24px;
+}
+
+label:not(.option) {
+    display: block;
+    font-weight: 700;
+    margin: 17px 0 8px;
+}
+
+input:not([type="radio"]) {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e4;
+    border-radius: 9px;
+    font: inherit;
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #85a9ff;
+    outline-offset: 3px;
+}
+
+.btn {
+    display: inline-block;
+    border: 0;
+    border-radius: 9px;
+    padding: 13px 20px;
+    background: #2858c7;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background: #1d439d;
+    text-decoration: none;
+}
+
+.btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.btn-outline {
+    border: 1px solid #a9bad7;
+    background: transparent;
+    color: white;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.icon {
+    font-size: 30px;
+}
+
+.feature-list {
+    line-height: 2;
+}
+
+.status {
+    color: #14764a;
+    font-weight: 700;
+}
+
+.alert {
+    border-radius: 9px;
+    padding: 13px 16px;
+    margin-bottom: 18px;
+}
+
+.alert-error {
+    background: #fff0f0;
+    color: #9d2424;
+}
+
+.alert-warning {
+    background: #fff7df;
+    color: #785600;
+}
+
+.alert-success {
+    background: #e6f8ed;
+    color: #146c3d;
+}
+
+.timer {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: #e9efff;
+    color: #214ba8;
+    font-size: 26px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-warning {
+    background: #fff0e7;
+    color: #a43c12;
+}
+
+.question-card h2 {
+    color: #2858c7;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    margin-top: 9px;
+    border: 1px solid #e0e6f0;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #f5f8ff;
+}
+
+.option input[type="radio"] {
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.result-card {
+    max-width: 580px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.score-circle {
+    font-size: 55px;
+    font-weight: 800;
+    color: #2858c7;
+    margin-top: 25px;
+}
+
+.score-circle span {
+    font-size: 24px;
+    color: #68758b;
+}
+
+.score-label {
+    font-weight: 700;
+}
+
+.score {
+    font-size: 30px;
+    color: #2858c7;
+    font-weight: 800;
+}
+
+footer {
+    padding: 24px;
+    color: #68758b;
+    text-align: center;
+}
+
+@media (max-width: 650px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+
+    .welcome {
+        margin-left: 0;
+    }
+
+    .container {
+        margin: 20px auto;
+    }
+
+    .auth-card,
+    .card,
+    .question-card,
+    .result-card,
+    .hero {
+        padding: 20px;
+    }
+}

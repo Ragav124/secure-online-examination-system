@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+{% block title %}Dashboard | SecureExam{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <p class="eyebrow">STUDENT PORTAL</p>
+    <h1>Your Examination Dashboard</h1>
+    <p>Welcome, {{ session.get('username') }}. Your examination is ready.</p>
+</section>
+
+<div class="grid">
+    <section class="card">
+        <div class="icon">🔐</div>
+        <h2>Secure Authentication</h2>
+        <p>Your account is protected by password hashing and session controls.</p>
+    </section>
+
+    <section class="card">
+        <div class="icon">📝</div>
+        <h2>Network Security Quiz</h2>
+        <p>Five multiple-choice questions. Time limit: 10 minutes.</p>
+        {% if result %}
+            <p class="status">Examination submitted</p>
+            <a class="btn" href="{{ url_for('result') }}">View Result</a>
+        {% else %}
+            <a class="btn" href="{{ url_for('exam') }}">Start Examination</a>
+        {% endif %}
+    </section>
+</div>
+
+{% if result %}
+<section class="card result-summary">
+    <h2>Previous Result</h2>
+    <p class="score">{{ result['score'] }} / {{ result['total'] }}</p>
+    <p>Submitted: {{ result['submitted_at'] }} UTC</p>
+</section>
+{% endif %}
+
+<section class="card">
+    <h2>Security features</h2>
+    <ul class="feature-list">
+        <li>Password hashing</li>
+        <li>CSRF protection</li>
+        <li>Parameterized SQL queries</li>
+        <li>Protected student routes</li>
+        <li>Server-side scoring and result storage</li>
+        <li>Security event logging</li>
+    </ul>
+</section>
+{% endblock %}

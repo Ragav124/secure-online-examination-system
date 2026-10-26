@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block title %}Result | SecureExam{% endblock %}
+
+{% block content %}
+<section class="result-card">
+    <p class="eyebrow">EXAMINATION COMPLETED</p>
+    <h1>Your Result</h1>
+
+    <div class="score-circle">
+        {{ result['score'] }}<span> / {{ result['total'] }}</span>
+    </div>
+
+    <p class="score-label">Correct answers</p>
+    <p>
+        Percentage:
+        <strong>{{ "%.1f"|format(100 * result['score'] / result['total']) }}%</strong>
+    </p>
+    <p>Submitted: {{ result['submitted_at'] }} UTC</p>
+
+    <p class="muted">
+        Your result has been stored in the examination database.
+    </p>
+    <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</section>
+{% endblock %}

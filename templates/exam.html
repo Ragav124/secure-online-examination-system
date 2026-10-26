@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% block title %}Examination | SecureExam{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <p class="eyebrow">ONLINE EXAMINATION</p>
+    <h1>Network Security Quiz</h1>
+    <p>Choose one answer for each question. Submit before time expires.</p>
+    <div id="countdown" class="timer" data-duration="{{ duration }}">
+        10:00
+    </div>
+</section>
+
+<form id="exam-form" method="POST" action="{{ url_for('exam') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    {% for question in questions %}
+    <section class="question-card">
+        <h2>Question {{ loop.index }}</h2>
+        <p>{{ question['question_text'] }}</p>
+
+        {% for option in [
+            question['option_a'],
+            question['option_b'],
+            question['option_c'],
+            question['option_d']
+        ] %}
+        <label class="option">
+            <input type="radio" name="{{ question['id'] }}"
+                   value="{{ loop.index0 }}">
+            <span>{{ option }}</span>
+        </label>
+        {% endfor %}
+    </section>
+    {% endfor %}
+
+    <button id="submit-exam" class="btn" type="submit">
+        Submit Examination
+    </button>
+</form>
+
+<script src="{{ url_for('static', filename='exam.js') }}" defer></script>
+{% endblock %}

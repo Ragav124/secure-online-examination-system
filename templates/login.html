@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+{% block title %}Login | SecureExam{% endblock %}
+
+{% block content %}
+<section class="auth-card">
+    <p class="eyebrow">SECURE ACCESS</p>
+    <h1>Welcome Back</h1>
+    <p class="muted">Log in to access your examination dashboard.</p>
+
+    <form method="POST" action="{{ url_for('login') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label for="username">Username</label>
+        <input id="username" name="username" maxlength="30"
+               autocomplete="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password"
+               maxlength="128" autocomplete="current-password" required>
+
+        <button class="btn" type="submit">Login Securely</button>
+    </form>
+
+    <p class="center">New student? <a href="{{ url_for('register') }}">Register here</a></p>
+</section>
+{% endblock %}

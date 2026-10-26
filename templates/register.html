@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% block title %}Register | SecureExam{% endblock %}
+
+{% block content %}
+<section class="auth-card">
+    <p class="eyebrow">CREATE ACCOUNT</p>
+    <h1>Student Registration</h1>
+    <p class="muted">Create your account to access the examination.</p>
+
+    <form method="POST" action="{{ url_for('register') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label for="username">Username</label>
+        <input id="username" name="username" minlength="3" maxlength="30"
+               pattern="[A-Za-z0-9_-]+" autocomplete="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password"
+               minlength="12" maxlength="128"
+               autocomplete="new-password" required>
+
+        <p class="muted small">Use at least 12 characters. Never reuse an important password.</p>
+        <button class="btn" type="submit">Create Account</button>
+    </form>
+
+    <p class="center">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+</section>
+{% endblock %}
